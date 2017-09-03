@@ -9,11 +9,7 @@ wget -O user-expired.sh "https://raw.githubusercontent.com/anggasa/worm/master/u
 wget -O userlimit.sh "https://raw.githubusercontent.com/anggasa/worm/master/userlimit.sh"
 wget -O user-list.sh "https://raw.githubusercontent.com/anggasa/worm/master/user-list.sh"
 wget -O /etc/issue.net "https://raw.githubusercontent.com/anggasa/worm/master/banner"
-echo "0 0 * * * root /root/user-expired.sh" > /etc/cron.d/user-expired
-#echo "@reboot root /root/userlimit.sh" > /etc/cron.d/userlimit
-echo "0 0 * * * root /usr/bin/reboot" > /etc/cron.d/reboot
-echo "* * * * * service dropbear restart" > /etc/cron.d/dropbear
-#sed -i '$ i\screen -AmdS check /root/autokill.sh' /etc/rc.local
+
 chmod +x bench-network.sh
 chmod +x speedtest_cli.py
 chmod +x ps_mem.py
