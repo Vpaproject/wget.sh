@@ -1,73 +1,46 @@
 #!/bin/bash
 
-cd
-sed -i '$ i\screen -AmdS limit /root/limit.sh' /etc/rc.local
-sed -i '$ i\screen -AmdS ban /root/ban.sh' /etc/rc.local
-sed -i '$ i\screen -AmdS limit /root/limit.sh' /etc/rc.d/rc.local
-sed -i '$ i\screen -AmdS ban /root/ban.sh' /etc/rc.d/rc.local
-echo "0 0 * * * root /usr/local/bin/user-expire" > /etc/cron.d/user-expire
-echo "0 0 * * * root /usr/local/bin/user-expire-pptp" > /etc/cron.d/user-expire-pptp
+cd /usr/bin
 
-cat > /root/ban.sh
-#!/bin/bash
-#/usr/local/bin/user-ban
+wget -O menu "https://github.com/blazevpn/autoscript/blob/master/menu.sh"
 
-cat > /root/limit.sh
-#!/bin/bash
-#/usr/local/bin/user-limit
+wget -O usernew "https://github.com/blazevpn/autoscript/blob/master/usernew.sh"
 
-cd /usr/local/bin
-wget -O premium-script.tar.gz "http://script.hostingtermurah.net/repo/premiumscript/premium-script.tar.gz"
-tar -xvf premium-script.tar.gz
-rm -f premium-script.tar.gz
+wget -O trial "https://github.com/blazevpn/autoscript/blob/master/trial.sh"
 
-cp /usr/local/bin/premium-script /usr/local/bin/menu
+wget -O hapus "https://github.com/blazevpn/autoscript/blob/master/hapus.sh"
 
-chmod +x /usr/local/bin/trial
-chmod +x /usr/local/bin/user-add
-chmod +x /usr/local/bin/user-aktif
-chmod +x /usr/local/bin/user-ban
-chmod +x /usr/local/bin/user-delete
-chmod +x /usr/local/bin/user-detail
-chmod +x /usr/local/bin/user-expire
-chmod +x /usr/local/bin/user-limit
-chmod +x /usr/local/bin/user-lock
-chmod +x /usr/local/bin/user-login
-chmod +x /usr/local/bin/user-unban
-chmod +x /usr/local/bin/user-unlock
-chmod +x /usr/local/bin/user-password
-chmod +x /usr/local/bin/user-log
-chmod +x /usr/local/bin/user-add-pptp
-chmod +x /usr/local/bin/user-delete-pptp
-chmod +x /usr/local/bin/alluser-pptp
-chmod +x /usr/local/bin/user-login-pptp
-chmod +x /usr/local/bin/user-expire-pptp
-chmod +x /usr/local/bin/user-detail-pptp
-chmod +x /usr/local/bin/bench-network
-chmod +x /usr/local/bin/speedtest
-chmod +x /usr/local/bin/ram
-chmod +x /usr/local/bin/log-limit
-chmod +x /usr/local/bin/log-ban
-chmod +x /usr/local/bin/listpassword
-chmod +x /usr/local/bin/pengumuman
-chmod +x /usr/local/bin/user-generate
-chmod +x /usr/local/bin/user-list
-chmod +x /usr/local/bin/diagnosa
-chmod +x /usr/local/bin/premium-script
-chmod +x /usr/local/bin/user-delete-expired
-chmod +x /usr/local/bin/auto-reboot
-chmod +x /usr/local/bin/log-install
-chmod +x /usr/local/bin/menu
-chmod +x /usr/local/bin/user-auto-limit
-chmod +x /usr/local/bin/user-auto-limit-script
-chmod +x /usr/local/bin/edit-port
-chmod +x /usr/local/bin/edit-port-squid
-chmod +x /usr/local/bin/edit-port-openvpn
-chmod +x /usr/local/bin/edit-port-openssh
-chmod +x /usr/local/bin/edit-port-dropbear
-chmod +x /usr/local/bin/autokill
-chmod +x /root/limit.sh
-chmod +x /root/ban.sh
+wget -O login "https://github.com/blazevpn/autoscript/blob/master/user-login.sh"
+
+wget -O member "https://github.com/blazevpn/autoscript/commit/893dda0e47a14d77d550aa4cd2d7aa1b465d824d"
+
+wget -O resvis "https://github.com/blazevpn/autoscript/blob/master/resvis.sh"
+
+wget -O speedtest "https://github.com/blazevpn/autoscript/blob/master/speedtest_cli.py"
+
+wget -O about "https://github.com/blazevpn/autoscript/blob/master/about.sh"
+
+echo "0 0 * * * root /usr/bin/reboot" > /etc/cron.d/reboot
+
+echo "* * * * * service dropbear restart" > /etc/cron.d/dropbear
+
+chmod +x menu
+
+chmod +x usernew
+
+chmod +x trial
+
+chmod +x hapus
+
+chmod +x login
+
+chmod +x member
+
+chmod +x resvis
+
+chmod +x speedtest
+
+chmod +x about
 screen -AmdS limit /root/limit.sh
 screen -AmdS ban /root/ban.sh
 clear
