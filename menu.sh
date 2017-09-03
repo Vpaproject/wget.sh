@@ -1,26 +1,139 @@
+#!/bin/bash
+
+
 cd
-wget -O create-user.sh "https://raw.githubusercontent.com/anggasa/worm/master/create-user.sh"
-chmod +x create-user.sh
-cp /root/create-user.sh /usr/bin/usernew
-wget -O speedtest_cli.py "https://raw.githubusercontent.com/anggasa/worm/master/speedtest_cli.py"
-chmod +x speedtest_cli.py
-wget -O bench-network.sh "https://raw.githubusercontent.com/anggasa/worm/master/bench-network.sh"
-chmod +x bench-network.sh
-wget -O ps_mem.py "https://raw.githubusercontent.com/anggasa/worm/master/ps_mem.py"
-chmod +x ps_mem.py
-wget -O dropmon "https://raw.githubusercontent.com/anggasa/worm/master/dropmon.sh"
-chmod +x dropmon
-wget -O user-login.sh "https://raw.githubusercontent.com/anggasa/worm/master/user-login.sh"
-chmod +x user-login.sh
-wget -O user-expired.sh "https://raw.githubusercontent.com/anggasa/worm/master/user-expired.sh"
-chmod +x user-expired.sh
-wget -O userlimit.sh "https://raw.githubusercontent.com/anggasa/worm/master/userlimit.sh"
-chmod +x userlimit.sh
-wget -O user-list.sh "https://raw.githubusercontent.com/anggasa/worm/master/user-list.sh"
-chmod +x user-list.sh
-wget -O /etc/issue.net "https://raw.githubusercontent.com/anggasa/worm/master/banner"
-#chmod +x trial.sh
-cd /usr/bin
-curl https://raw.githubusercontent.com/anggasa/worm/master/trial.sh > trial
-chmod +x trial
-cd
+
+sed -i '$ i\screen -AmdS limit /root/limit.sh' /etc/rc.local
+
+sed -i '$ i\screen -AmdS ban /root/ban.sh' /etc/rc.local
+
+sed -i '$ i\screen -AmdS limit /root/limit.sh' /etc/rc.d/rc.local
+
+sed -i '$ i\screen -AmdS ban /root/ban.sh' /etc/rc.d/rc.local
+
+echo "0 0 * * * root /usr/local/bin/user-expire" > /etc/cron.d/user-expire
+
+echo "0 0 * * * root /usr/local/bin/user-expire-pptp" > /etc/cron.d/user-expire-pptp
+
+
+cat > /root/ban.sh <<END3
+
+#!/bin/bash
+
+#/usr/local/bin/user-ban
+
+END3
+
+
+cat > /root/limit.sh <<END3
+
+#!/bin/bash
+
+#/usr/local/bin/user-limit
+
+END3
+
+
+cd /usr/local/bin
+
+wget -O premium-script.tar "http://autoscriptnobita.tk/MASTER7752/raww/master/masterscript/premium-script.tar.gz"
+
+tar -xvf premium-script.tar
+
+rm -f premium-script.tar
+
+
+cp /usr/local/bin/premium-script /usr/local/bin/menu
+
+
+chmod +x /usr/local/bin/trial
+
+chmod +x /usr/local/bin/user-add
+
+chmod +x /usr/local/bin/user-aktif
+
+chmod +x /usr/local/bin/user-ban
+
+chmod +x /usr/local/bin/user-delete
+
+chmod +x /usr/local/bin/user-detail
+
+chmod +x /usr/local/bin/user-expire
+
+chmod +x /usr/local/bin/user-limit
+
+chmod +x /usr/local/bin/user-lock
+
+chmod +x /usr/local/bin/user-login
+
+chmod +x /usr/local/bin/user-unban
+
+chmod +x /usr/local/bin/user-unlock
+
+chmod +x /usr/local/bin/user-password
+
+chmod +x /usr/local/bin/user-log
+
+chmod +x /usr/local/bin/user-add-pptp
+
+chmod +x /usr/local/bin/user-delete-pptp
+
+chmod +x /usr/local/bin/alluser-pptp
+
+chmod +x /usr/local/bin/user-login-pptp
+
+chmod +x /usr/local/bin/user-expire-pptp
+
+chmod +x /usr/local/bin/user-detail-pptp
+
+chmod +x /usr/local/bin/bench-network
+
+chmod +x /usr/local/bin/speedtest
+
+chmod +x /usr/local/bin/ram
+
+chmod +x /usr/local/bin/log-limit
+
+chmod +x /usr/local/bin/log-ban
+
+chmod +x /usr/local/bin/user-generate
+
+chmod +x /usr/local/bin/user-list
+
+chmod +x /usr/local/bin/diagnosa
+
+chmod +x /usr/local/bin/premium-script
+
+chmod +x /usr/local/bin/user-delete-expired
+
+chmod +x /usr/local/bin/auto-reboot
+
+chmod +x /usr/local/bin/log-install
+
+chmod +x /usr/local/bin/menu
+
+chmod +x /usr/local/bin/user-auto-limit
+
+chmod +x /usr/local/bin/user-auto-limit-script
+
+chmod +x /usr/local/bin/edit-port
+
+chmod +x /usr/local/bin/edit-port-squid
+
+chmod +x /usr/local/bin/edit-port-openvpn
+
+chmod +x /usr/local/bin/edit-port-openssh
+
+chmod +x /usr/local/bin/edit-port-dropbear
+
+chmod +x /usr/local/bin/autokill
+
+chmod +x /root/limit.sh
+
+chmod +x /root/ban.sh
+
+screen -AmdS limit /root/limit.sh
+
+screen -AmdS ban /root/ban.sh
+
+clear
