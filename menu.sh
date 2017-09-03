@@ -1,29 +1,42 @@
 #!/bin/bash
 #
-# SCRIPT BY ORANGKUATSABAHANTERKINI
-# WELCOME
-# ==================================================
+# User Status
+cd
+wget http://antclub.5gbfree.com/debian32/user-list
+mv ./user-list /usr/local/bin/user-list
+chmod +x /usr/local/bin/user-list
+
+
+# limit
+wget -O userexpired.sh "http://antclub.5gbfree.com/debian32/userexpired.sh"
+wget -O expire.sh "http://antclub.5gbfree.com/debian32/expire.sh"
+echo "@reboot root /root/userexpired.sh" > /etc/cron.d/userexpired
+chmod +x userexpired.sh
+chmod +x expire.sh
+
+
+# Install Monitor
+cd
+wget http://antclub.5gbfree.com/debian32/monssh; mv monssh /usr/local/bin/; chmod +x /usr/local/bin/monssh
+
+
+# Install Menu
+cd
+wget http://antclub.5gbfree.com/debian32/menu
+mv ./menu /usr/local/bin/menu
+chmod +x /usr/local/bin/menu
+
+# moth
+cd
+wget http://antclub.5gbfree.com/debian32/motd
+mv ./motd /etc/motd
 
 # download script
-cd /usr/bin
-wget -O menu "https://raw.githubusercontent.com/nifira123/debian7_32bit/master/menu.sh"
-wget -O usernew "https://raw.githubusercontent.com/nifira123/debian7_32bit/master/usernew.sh"
-wget -O trial "https://raw.githubusercontent.com/nifira123/debian7_32bit/master/trial.sh"
-wget -O hapus "https://raw.githubusercontent.com/nifira123/debian7_32bit/master/hapus.sh"
-wget -O login "https://raw.githubusercontent.com/nifira123/debian7_32bit/master/user-login.sh"
-wget -O member "https://raw.githubusercontent.com/nifira123/debian7_32bit/master/user-list.sh"
-wget -O resvis "https://raw.githubusercontent.com/nifira123/debian7_32bit/master/resvis.sh"
-wget -O speedtest "https://raw.githubusercontent.com/ForNesiaFreak/FNS_Debian7/fornesia.com/null/speedtest_cli.py"
-wget -O about "https://raw.githubusercontent.com/nifira123/debian7_32bit/master/about.sh"
-echo "0 0 * * * root /usr/bin/reboot" > /etc/cron.d/reboot
-echo "* * * * * service dropbear restart" > /etc/cron.d/dropbear
-chmod +x menu
-chmod +x usernew
-chmod +x trial
-chmod +x hapus
-chmod +x login
-chmod +x member
-chmod +x resvis
-chmod +x speedtest
-chmod +x about
+cd
+wget -O speedtest_cli.py "https://raw.github.com/sivel/speedtest-cli/master/speedtest_cli.py"
+wget -O bench-network.sh "http://antclub.5gbfree.com/debian32/bench-network.sh"
+wget -O ps_mem.py "https://raw.github.com/pixelb/ps_mem/master/ps_mem.py"
+chmod +x bench-network.sh
+chmod +x speedtest_cli.py
+chmod +x ps_mem.py
 clear
